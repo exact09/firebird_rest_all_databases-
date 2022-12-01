@@ -1,1 +1,1 @@
-# firebird_rest_all_databases-
+# firebird Rest Server for all FIREBIRD Databases
