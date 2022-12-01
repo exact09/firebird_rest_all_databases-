@@ -1,1 +1,1 @@
-["let TXT1_FONT = request.body.TXT1_FONT","let TXT1_SIZE = request.body.TXT1_SIZE","let TXT1_FONT_COLOR = request.body.TXT1_FONT_COLOR","let TXT1_BACK_COLOR = request.body.TXT1_BACK_COLOR","let TXT1_SPEED = request.body.TXT1_SPEED","let TXT2_FONT = request.body.TXT2_FONT","let TXT2_SIZE = request.body.TXT2_SIZE","let TXT2_FONT_COLOR = request.body.TXT2_FONT_COLOR","let TXT2_BACK_COLOR = request.body.TXT2_BACK_COLOR","let TXT2_SPEED = request.body.TXT2_SPEED"]
+["let EMRI = request.body.EMRI","let IP = request.body.IP"]
