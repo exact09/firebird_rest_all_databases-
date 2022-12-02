@@ -19,9 +19,14 @@ module.exports = function (router, Firebird, options) {
       if (err) throw err;
       db.query(sql_trego_tabelat_fushat, function (err, result) {
         res.json(result);
+        let tabela_rregull = JSON.parse(
+          JSON.stringify(result).replace(/(\\)?"\s*|\s+"/g, ($0, $1) =>
+            $1 ? $0 : '"'
+          )
+        );
         fs.writeFile(
           "./config/table_field.json",
-          JSON.stringify(result),
+          JSON.stringify(tabela_rregull),
           function (err) {
             if (err) throw err;
             // console.log("complete");

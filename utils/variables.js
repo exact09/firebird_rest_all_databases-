@@ -5,12 +5,7 @@ const { id } = require("../api-routes/routat.js");
 //let tabela = "scroll";
 //let id = 0;
 var lexo_tabelat_file = fs.readFileSync("./config/table_field.json").toString();
-let lexo_tabelat = JSON.parse(lexo_tabelat_file);
-let tabela_rregull = JSON.parse(
-  JSON.stringify(lexo_tabelat).replace(/(\\)?"\s*|\s+"/g, ($0, $1) =>
-    $1 ? $0 : '"'
-  )
-);
+let tabela_rregull = JSON.parse(lexo_tabelat_file);
 
 const tabela_emri_kerkim = tabela || ""; // 👉️ ""
 
