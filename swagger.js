@@ -1,7 +1,12 @@
 const swaggerAutogen = require("swagger-autogen")();
+var fs = require("fs");
 
-const outputFile = "./swagger_output.json";
+const outputFile = __dirname + "/config/swagger_output.json";
 const endpointsFiles = ["./api-routes/routat.js"];
+
+var lexo_tabelat_file = fs
+  .readFileSync(__dirname + "/config/swagger_doc.json")
+  .toString();
 
 const doc = {
   info: {

@@ -6,7 +6,7 @@ const cors = require("cors");
 const { response } = require("express");
 //Swagger
 const swaggerUi = require("swagger-ui-express");
-const swaggerFile = require("./swagger_output.json");
+const swaggerFile = require(__dirname + "/config/swagger_doc.json");
 //-----
 const alltables = require("./config/tables.json");
 

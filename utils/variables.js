@@ -31,6 +31,7 @@ var request_body_routes = tabela_kerkim.map(function (item) {
 let item_field_get = request_body_routes.filter(
   (it) => !forDeletion.includes(it)
 );
+//exports.item_field_get = ite;
 
 let item_field_get_NOID = tabela_fushat.filter(
   (it) => !forDeletionID.includes(it)
@@ -42,9 +43,9 @@ item_field_get.forEach(function (value) {
   items_value = value;
   //console.log(value);
 });
-module.exports = { items_value };
+console.log("item Field Get variables.js ", item_field_get);
+module.exports = item_field_get;
 
-module.exports = { item_field_get };
 //Looks ok console.log("item_field_get", item_field_get);
 //----------------------
 
