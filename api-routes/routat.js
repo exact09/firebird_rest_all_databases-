@@ -47,12 +47,11 @@ module.exports = function (router, Firebird, options) {
     let tabela = req.params.tabela;
     let id = req.params.id;
     module.exports = { tabela, id };
-    //const fushat_let = require("../utils/variables.js");
+    console.log("export tabela ene id");
 
-    //const item_field_get = require("../utils/variables.js");
-    item_field_get = require("../utils/variables");
+    items_value = require("../utils/variables");
 
-    console.log("values= ", item_field_get);
+    console.log("values= ", items_value);
     const query_update = require("../utils/variables.js");
     console.log("query e importume ", query_update);
 

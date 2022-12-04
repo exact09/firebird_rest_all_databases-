@@ -2,21 +2,18 @@ const fs = require("fs");
 const { Module } = require("module");
 const { tabela } = require("../api-routes/routat.js");
 const { id } = require("../api-routes/routat.js");
-//let tabela = "scroll";
-//let id = 0;
+//Variablat qe perdoren 1 here
 var lexo_tabelat_file = fs.readFileSync("./config/table_field.json").toString();
 let tabela_rregull = JSON.parse(lexo_tabelat_file);
-
-const tabela_emri_kerkim = tabela || ""; // 👉️ ""
-
-const tabela_kerkim = tabela_rregull.filter(
-  (it) => it.TABLENAME.toUpperCase() === tabela_emri_kerkim.toUpperCase()
-);
-// OK----console.log("tabela_Kerkim", tabela_kerkim);
+let tabela_emri_kerkim = tabela || ""; // 👉️ ""
 //fshirja e ID per update ne tabele
 let forDeletion = "'let ID = request.body.ID'";
 let forDeletionID = "'ID'";
-//------------------
+//------------------ fund variablat 1 here----------------
+
+let tabela_kerkim = tabela_rregull.filter(
+  (it) => it.TABLENAME.toUpperCase() === tabela_emri_kerkim.toUpperCase()
+);
 var tabela_fushat = tabela_kerkim.map(function (item) {
   return item.FIELDNAME;
 });
@@ -26,34 +23,26 @@ var tabela_fushat = tabela_kerkim.map(function (item) {
 var request_body_routes = tabela_kerkim.map(function (item) {
   return "let " + item.FIELDNAME + " = request.body." + item.FIELDNAME;
 });
-//OK--console.log("request_body_routes", request_body_routes);
-
 let item_field_get = request_body_routes.filter(
   (it) => !forDeletion.includes(it)
 );
-//exports.item_field_get = ite;
-
 let item_field_get_NOID = tabela_fushat.filter(
   (it) => !forDeletionID.includes(it)
 );
-//const fushat = item_field_get;
-let items_value;
-item_field_get.forEach(function (value) {
-  value = value + ";";
-  items_value = value;
-  //console.log(value);
-});
-console.log("item Field Get variables.js ", item_field_get);
-module.exports = item_field_get;
 
-//Looks ok console.log("item_field_get", item_field_get);
+let items_value = item_field_get.join(";");
+console.log({ items_value });
+
+//console.log("items value: ", value1);
+
+//items_value = item_field_get;
+console.log("item Field Get variables.js ", items_value);
+module.exports = items_value;
 //----------------------
-
 let gjatesia_query = item_field_get_NOID.length;
-//let query_fillim = "INSERT INTO ${Firebird.escape(tabela )}";
 let query_fushat = item_field_get_NOID;
 //-------------krijimi i ??
-const pikepyetja = item_field_get_NOID
+let pikepyetja = item_field_get_NOID
   .map((it) => {
     return "?";
   })
@@ -80,9 +69,6 @@ module.exports = { query_insert_noId };
 var query_update_fushat = "";
 var query_update1 = "";
 var var_kot = "";
-//-----------------
-//-------------krijimi i ??
-
 //----------------
 var_kot = "";
 for (let i = 0; i < item_field_get_NOID.length; i++) {
