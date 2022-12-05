@@ -49,13 +49,16 @@ module.exports = function (router, Firebird, options) {
     module.exports = { tabela, id };
     console.log("export tabela ene id");
 
-    items_value = require("../utils/variables");
+    //----------items field value duhet ktu ta gjeneroj
+    const items_value = require("../utils/variables");
+    items_value;
 
-    console.log("values= ", items_value);
-    const query_update = require("../utils/variables.js");
-    console.log("query e importume ", query_update);
+    console.log("items value routat: ", items_value);
 
-    console.log("item  field perfundon");
+    //-----------------------------------------------------
+    const query_update = require("../utils/queries");
+    console.log("QUERY UPDATE ROUTAT: ", query_update + ` where id=${id}`);
+
     Firebird.attach(options, function (err, db) {
       if (err) throw err;
       // db = DATABASE
@@ -71,9 +74,9 @@ module.exports = function (router, Firebird, options) {
     //Kjo Funksionon OK  fillimi i endpoint per shpallje ne web server '/vitet'-> emri i funksionit me posht
     let tabela = req.params.tabela;
     module.exports = { tabela };
-    const query_insert_noId = require("../utils/variables");
-    const request_body_routes = require("../utils/variables");
-    request_body_routes;
+    //const query_insert_noId = require("../utils/variables");
+    //const request_body_routes = require("../utils/variables");
+    //request_body_routes;
 
     Firebird.attach(options, function (err, db) {
       if (err) throw err;
